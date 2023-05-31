@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "serve",
+			"path": "vue3-tutorial",
+			"problemMatcher": [],
+			"label": "npm: serve - vue3-tutorial",
+			"detail": "vue-cli-service serve"
+		}
+	]
+}
