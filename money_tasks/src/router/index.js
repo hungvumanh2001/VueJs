@@ -7,12 +7,12 @@ import NotFound from "../pages/404.vue";
 const routes = [
   {
     path: "/",
-    name: "home",
+    name: "home-router",
     component: Home,
   },
   {
     path: "/transactions",
-    name: "ransactions",
+    name: "transaction-router",
     component: Transactions,
   },
   {
@@ -21,6 +21,7 @@ const routes = [
   },
   {
     path: "/transactions/:id",
+    name: "transaction-details-router",
     component: TransactionDetail,
   },
   // Đường dẫn không tìm thấy
