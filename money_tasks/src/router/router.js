@@ -15,10 +15,10 @@ const routes = [
     name: "transaction-router",
     component: Transactions,
   },
-  {
-    path: "/ts",
-    redirect: "/transactions",
-  },
+  // {
+  //   path: "/ts",
+  //   redirect: "/transactions",
+  // },
   {
     path: "/transactions/:id",
     name: "transaction-details-router",
