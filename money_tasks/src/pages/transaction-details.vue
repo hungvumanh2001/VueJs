@@ -2,7 +2,7 @@
   <div>
     <div v-if="transaction">
       <h1>This is here transaction details page</h1>
-      <h1>ID: {{ $route.params.id }}</h1>
+      <h1>ID: {{ transaction.id }}</h1>
       <h3>Name: {{ transaction.name }}</h3>
       <p>Price: {{ transaction.price }}</p>
     </div>
