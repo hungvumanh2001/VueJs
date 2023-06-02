@@ -29,13 +29,16 @@ nav a.router-link-exact-active {
 }
 </style>
 <script>
-import { response } from "express";
 import { fireStoreCore } from "./configs/firebase";
 export default {
   setup() {
     async function getTransactions() {
       const response = await fireStoreCore.collection("transactions").get();
       console.log(response.docs);
+      const data = response.docs.map((doc) => {
+        return { ...doc.data(), id: doc.id };
+      });
+      console.log(data);
     }
     getTransactions();
   },
