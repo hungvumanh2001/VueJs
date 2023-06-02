@@ -24,6 +24,8 @@
 
 <script>
 import useTransactions from "../uses/fetchTransactions";
+import { useStore } from "vuex";
+import { computed } from "vue";
 export default {
   name: "TransactionsPage",
   // data() {
@@ -37,8 +39,15 @@ export default {
   //     .then((data) => (this.transactions = data));
   // },
   setup() {
-    const { transactions, error, fetchAll } = useTransactions();
-    fetchAll();
+    //dùng Composition API
+    // const { transactions, error, fetchAll } = useTransactions();
+    // fetchAll();
+    // return { transactions, error };
+    //dùng vuex
+    const store = useStore();
+    store.dispatch("fetchAllTractions");
+    const transactions = computed(() => store.state.transactions);
+    const error = computed(() => store.state.error);
     return { transactions, error };
   },
 };

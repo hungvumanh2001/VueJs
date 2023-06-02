@@ -11,18 +11,35 @@
 </template>
 
 <script>
+import { computed } from "vue";
+import { useStore } from "vuex";
+import { useRoute } from "vue-router";
 export default {
   name: "TransactionDetailsPage",
-  data() {
+  // computed: {
+  //   transaction() {
+  //     return this.$store.state.transaction;
+  //   },
+  //   transactionsFiltered() {
+  //     return this.$store.getters.transactionsFiltered;
+  //   },
+  // },
+  // created() {
+  //   // //sử dụng option API bình thường
+  //   // fetch("http://localhost:3000/transactions/" + this.$route.params.id)
+  //   //   .then((response) => response.json())
+  //   //   .then((data) => (this.transaction = data))
+  //   //   .then(() => console.log(this.transaction));
+  //   //sử dụng Vuex
+  //   this.$store.dispatch("fetchTraction", { id: this.$route.params.id });
+  // },
+  setup() {
+    const route = useRoute();
+    const store = useStore();
+    store.dispatch("fetchTraction", { id: route.params.id });
     return {
-      transaction: null,
+      transaction: computed(() => store.state.transaction),
     };
-  },
-  created() {
-    fetch("http://localhost:3000/transactions/" + this.$route.params.id)
-      .then((response) => response.json())
-      .then((data) => (this.transaction = data))
-      .then(() => console.log(this.transaction));
   },
 };
 </script>
